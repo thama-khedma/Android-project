@@ -1,4 +1,4 @@
-# IOS-projet
+# Android-projet
 # salut, nous somme monaem et jassser [thamma-khedma][youtube] 👋 
 IOS-mini-projet
 thamma-khedma
