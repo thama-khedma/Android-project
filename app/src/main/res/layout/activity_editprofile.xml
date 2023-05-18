@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:layout_gravity="center"
     android:background="@color/background"
-    tools:context=".view.editprofile">
+    tools:context=".view.activities.editprofile">
 
     <LinearLayout
         android:orientation="vertical"
@@ -168,22 +168,22 @@
                             android:layout_height="wrap_content"
                             />
                     </com.google.android.material.textfield.TextInputLayout>
+
                     <Button
                         android:id="@+id/editprofile"
-                        android:text="update profile"
-                        android:textSize="17sp"
-                        android:textAllCaps="false"
-                        android:elevation="15dp"
-                        android:gravity="center"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginEnd="24dp"
-                        android:textColor="@color/textColor"
-                        android:layout_gravity="center"
-                        app:shapeAppearanceOverlay="@style/Button5"
-                        app:backgroundTint="@color/pinkColor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        />
+                        android:layout_gravity="center"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginEnd="24dp"
+                        android:elevation="15dp"
+                        android:gravity="center"
+                        android:text="update profile"
+                        android:textAllCaps="false"
+                        android:textColor="@color/textColor"
+                        android:textSize="17sp"
+                        app:backgroundTint="@color/pinkColor"
+                        app:shapeAppearanceOverlay="@style/Button5" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </RelativeLayout>

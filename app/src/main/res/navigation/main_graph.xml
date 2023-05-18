@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/myRestaurantsFragment">
+
+    <fragment
+        android:id="@+id/myRestaurantsFragment"
+        android:name="com.example.khedma.view.fragments.main.my_entreprise"
+        android:label="MyRestaurantsFragment"
+        tools:layout="@layout/fragment_my_entreprise" >
+        <action
+            android:id="@+id/action_myRestaurantsFragment_to_addRestaurantFragment"
+            app:destination="@id/addRestaurantFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_myRestaurantsFragment_to_restaurantDetailsFragment"
+            app:destination="@id/restaurantDetailsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/myOffersFragment"
+        android:name="com.example.khedma.view.fragments.main.my_offre"
+        android:label="MyOffresFragment"
+        tools:layout="@layout/fragment_my_offre" >
+        <action
+            android:id="@+id/action_myOffresFragment_to_addOffreFragment"
+            app:destination="@id/addOffreFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_myOffresFragment_to_offreDetailsFragment"
+            app:destination="@id/offreDetailsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.khedma.view.fragments.main.Settings"
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_settingsFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.khedma.view.fragments.main.profil"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profil" />
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.example.khedma.view.fragments.main.my_condidature"
+        android:label="ChangePasswordFragment"
+        tools:layout="@layout/fragment_my_condidature" />
+
+    <fragment
+        android:id="@+id/addRestaurantFragment"
+        android:name="com.example.khedma.view.fragments.main.add_entreprise"
+        android:label="AddRestaurantFragment"
+        tools:layout="@layout/fragment_add_entreprise" />
+    <fragment
+        android:id="@+id/addOffreFragment"
+        android:name="com.example.khedma.view.fragments.main.add_offre"
+        android:label="AddOffreFragment"
+        tools:layout="@layout/fragment_add_offre" />
+    <fragment
+        android:id="@+id/restaurantDetailsFragment"
+        android:name="com.example.khedma.view.fragments.main.details_entreprise"
+        android:label="RestaurantDetailsFragment"
+        tools:layout="@layout/fragment_details_entreprise" >
+        <argument
+            android:name="restaurantId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_restaurantDetailsFragment_to_editRestaurantFragment"
+            app:destination="@id/editRestaurantFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_restaurantDetailsFragment_to_myRestaurantsFragment"
+            app:destination="@id/myRestaurantsFragment" />
+        <action
+            android:id="@+id/action_restaurantDetailsFragment_to_restaurantMenuFragment"
+            app:destination="@id/offerMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/offreDetailsFragment"
+        android:name="com.example.khedma.view.fragments.main.details_offre"
+        android:label="OfferDetailsFragment"
+        tools:layout="@layout/fragment_details_offre" >
+        <argument
+            android:name="offerId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_offerDetailsFragment_to_editOfferFragment"
+            app:destination="@id/editOfferFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_offerDetailsFragment_to_myOffersFragment"
+            app:destination="@id/myOffersFragment" />
+        <action
+            android:id="@+id/action_offerDetailsFragment_to_offerMenuFragment"
+            app:destination="@id/offerMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editOfferFragment"
+        android:name="com.example.khedma.view.fragments.main.edit_Offre"
+        android:label="EditOffreFragment"
+        tools:layout="@layout/fragment_edit_offre" >
+        <argument
+            android:name="offezId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/editRestaurantFragment"
+        android:name="com.example.khedma.view.fragments.main.edit_entreprise"
+        android:label="EditRestaurantFragment"
+        tools:layout="@layout/fragment_edit_entreprise" >
+        <argument
+            android:name="restaurantId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/offerMenuFragment"
+        android:name="com.example.khedma.view.fragments.main.offres"
+        android:label="OffreMenuFragment"
+        tools:layout="@layout/fragment_offres" >
+        <argument
+            android:name="offreId"
+            app:argType="string" />
+    </fragment>
+
+
+
+
+</navigation>

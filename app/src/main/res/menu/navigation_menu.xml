@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/myRestaurantsFragment"
+            android:icon="@drawable/ic_home"
+            android:title="Home"
+            android:checked="true"/>
+        <item
+            android:id="@+id/restaurantsFragment"
+            android:icon="@android:drawable/ic_dialog_info"
+            android:title="Offre" />
+        <item
+            android:id="@+id/CondidatureItem"
+            android:icon="@drawable/baseline_post_add_24"
+            android:title="Condidature" />
+    </group>
+
+    <item android:title="Options">
+        <menu>
+            <item
+                android:id="@+id/settingsFragment"
+                android:icon="@drawable/baseline_settings_24"
+                android:title="Settings" />
+            <item
+                android:id="@+id/LogoutItem"
+                android:icon="@drawable/baseline_logout_24"
+                android:title="Logout" />
+        </menu>
+    </item>
+</menu>

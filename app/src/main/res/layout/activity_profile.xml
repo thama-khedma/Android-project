@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:layout_gravity="center"
     android:background="@color/background"
-    tools:context=".view.profileActivity">
+    tools:context="..activities.profileActivity">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -63,7 +63,9 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <include layout="@layout/profile_add"/>
+            <include layout="@layout/profile_add"
+                android:id="@+id/maps"
+                />
 
             <include layout="@layout/profile_info" />
 

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/abc"
+        android:scaleType="centerCrop"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/entrepriseImage"
+            android:layout_width="0dp"
+            android:layout_height="230dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/item"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/entrepriseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="name"
+            style="@style/h4"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/entrepriseImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="35sp"/>
+
+        <LinearLayout
+            android:id="@+id/linearMyEntreprises"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/entrepriseImage"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvEditEntreprise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/h4"
+                android:text="edit"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/background"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/tvDeleteEntreprise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/h4"
+                android:text="delete"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/background"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/entrepriseDescription"
+            style="@style/h2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="description"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/entrepriseName"
+            tools:ignore="UnknownId" />
+
+        <TextView
+            android:id="@+id/information"
+            style="@style/h3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="76dp"
+            android:text="email"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/entrepriseDescription" />
+
+        <TextView
+            android:id="@+id/addressLabel"
+            style="@style/h3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="44dp"
+            android:text="adresse"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/information" />
+
+        <TextView
+            android:id="@+id/entrepriseAddress"
+            style="@style/h3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="44dp"
+            android:text="adresse"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/addressLabel"
+            app:layout_constraintTop_toBottomOf="@id/information" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
