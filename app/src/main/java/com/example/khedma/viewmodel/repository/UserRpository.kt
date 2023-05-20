@@ -12,6 +12,7 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.IOException
 import android.widget.Toast
 import com.example.khedma.util.URL
+import kotlinx.serialization.Serializable
 
 class UserRepository {
     // Register user with email and password
@@ -61,6 +62,9 @@ class UserRepository {
                         val userId = jsonResponse.getString("_id")
                         val userEmail = jsonResponse.getString("email")
                         val userRole = jsonResponse.getString("Role")
+                        val verified = jsonResponse.getString("verified") == "true"
+                        val setup = jsonResponse.getString("setup") == "true"
+
 
                         // parse other fields as needed
                         // ...
@@ -70,6 +74,8 @@ class UserRepository {
                         editor.putString("userId", userId)
                         editor.putString("userEmail", userEmail)
                         editor.putString("userRole", userRole)
+                        editor.putBoolean("verified", verified)
+                        editor.putBoolean("setup", setup)
                         editor.apply()
                     }
                 }
@@ -100,7 +106,58 @@ class UserRepository {
         }
         success
     }
+    @Serializable
+    data class UpdateUserPayload(
+        val first_name: String,
+        val last_name: String,
+        val setup: Boolean,
+        val Role: String
+    )
 
+
+    suspend fun setupemployee(context: Context, first_name: String, last_name: String, id: String?): Boolean =
+        withContext(Dispatchers.IO) {
+            val client = OkHttpClient()
+            val url = "http://$URL:3000/user/updateUser/$id"
+            val payload = UpdateUserPayload(first_name, last_name, true, "employe")
+            val requestBody = Json.encodeToString(UpdateUserPayload.serializer(), payload)
+                .toRequestBody("application/json".toMediaType())
+            val request = Request.Builder()
+                .url(url)
+                .post(requestBody)
+                .build()
+            var success = false
+            client.newCall(request).execute().use { response ->
+                success = response.isSuccessful
+                val message = response.body?.string() ?: "Unknown error occurred"
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+                }
+            }
+            success
+        }
+
+    suspend fun setupemployer(context: Context, first_name: String, last_name: String, id: String?): Boolean =
+        withContext(Dispatchers.IO) {
+            val client = OkHttpClient()
+            val url = "http://$URL:3000/user/updateUser/$id"
+            val payload = UpdateUserPayload(first_name, last_name, true, "employer")
+            val requestBody = Json.encodeToString(UpdateUserPayload.serializer(), payload)
+                .toRequestBody("application/json".toMediaType())
+            val request = Request.Builder()
+                .url(url)
+                .post(requestBody)
+                .build()
+            var success = false
+            client.newCall(request).execute().use { response ->
+                success = response.isSuccessful
+                val message = response.body?.string() ?: "Unknown error occurred"
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+                }
+            }
+            success
+        }
     suspend fun forgetpassword(context: Context, email: String): Boolean = withContext(Dispatchers.IO) {
         val client = OkHttpClient()
         val url = "http://"+URL+":3000/user/resetpwd"

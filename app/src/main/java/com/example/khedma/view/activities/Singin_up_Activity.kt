@@ -53,7 +53,7 @@ class Singin_up_Activity : AppCompatActivity() {
         val logInLayout = findViewById<View>(R.id.logInLayout)
         val singup = findViewById<TextView>(R.id.singup)
         val login = findViewById<TextView>(R.id.login)
-        val sharedPref = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+        val sharedPref = getSharedPreferences("MySharedPreferences", MODE_PRIVATE)
         val editor = sharedPref.edit()
         // Set onClickListeners for buttons
         myCheckBox.setOnCheckedChangeListener { buttonView, isChecked ->
@@ -140,6 +140,9 @@ class Singin_up_Activity : AppCompatActivity() {
         login.setOnClickListener {
             val emaill = emailloginText.text.toString().trim()
             val passwordd = passwordloginText.text.toString().trim()
+            val verified = sharedPref.getBoolean("verified", false)
+            val setup = sharedPref.getBoolean("setup", false)
+
             if (emaill.isEmpty() || passwordd.isEmpty()) {
                 // Show an alert dialog if either field is empty
                 AlertDialog.Builder(this)
@@ -156,10 +159,28 @@ class Singin_up_Activity : AppCompatActivity() {
                     editor.putBoolean("loggedIn", true)
                 }
                 else if (success) {
+                    if(verified){
                     // Registration successful, navigate to another page
+                        if (!setup){
+                            val intent = Intent(this@Singin_up_Activity, Setupactivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        }
+                        else{
                        val intent = Intent(this@Singin_up_Activity, SlideActivity::class.java)
                        startActivity(intent)
-                       finish()
+                       finish()}
+                    }
+
+                    else{
+                        Handler(Looper.getMainLooper()).post {
+                            android.app.AlertDialog.Builder(this@Singin_up_Activity)
+                                .setTitle("Error")
+                                .setMessage("Please verifie email")
+                                .setPositiveButton("OK") { dialog, which -> dialog.dismiss() }
+                                .show()
+                        }
+                    }
                 }else if (!success) {
                 Handler(Looper.getMainLooper()).post {
                     android.app.AlertDialog.Builder(this@Singin_up_Activity)

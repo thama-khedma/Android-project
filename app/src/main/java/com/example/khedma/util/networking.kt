@@ -1,3 +1,3 @@
 package com.example.khedma.util
 
-const val URL = "192.168.1.166"
+const val URL = "172.17.5.97"

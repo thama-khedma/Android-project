@@ -54,7 +54,7 @@ class Settings : Fragment(R.layout.fragment_settings){
             }else{tvSecurity.visibility = View.VISIBLE
                 linearChangePassword.visibility = View.VISIBLE }
             linearLogout.setOnClickListener {
-                val sharedPref = requireContext().getSharedPreferences("myPreferences", Context.MODE_PRIVATE)
+                val sharedPref = requireContext().getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE)
                 val editor = sharedPref.edit()
                 editor.clear()
                 editor.apply()
